@@ -22,7 +22,7 @@
     const alertbox = $('#ConfirmationAlert')
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:7071/api/SubscriberRegistration',
+      url: 'https://dailycomic.azurewebsites.net/api/SubscriberRegistration?code=V9jPrg6mzcwoBS30OW7xKFeaeAtB77NBu8zu07t7CYThO70HDKKmVg==',
       crossDomain: true,
       data: data,
       success: function (responseData, textStatus, jqXHR) {
