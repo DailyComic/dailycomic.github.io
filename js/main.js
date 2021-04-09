@@ -20,6 +20,8 @@
     const selectBox = document.getElementById('SubscriptionTypeSelect').value
     const data = JSON.stringify({ 'WebhookUrl': url, 'SubscriptionName': selectBox })
     const alertbox = $('#ConfirmationAlert')
+    $(alertbox).attr('class', 'display-progress').text('Hold on, registering subscription').fadeIn()
+    $('#SubscribeButton').fadeOut();
     $.ajax({
       type: 'POST',
       url: 'https://dailycomic.azurewebsites.net/api/SubscriberRegistration?code=V9jPrg6mzcwoBS30OW7xKFeaeAtB77NBu8zu07t7CYThO70HDKKmVg==',
@@ -27,12 +29,17 @@
       data: data,
       success: function (responseData, textStatus, jqXHR) {
         $(alertbox).attr('class', 'display-success')
-        $(alertbox).text('Subscription registered. First comic should be sent in a few seconds!').show()
+        $(alertbox).text('Subscription registered. First comic should be sent in a few seconds!')
+        $('#SubscribeButton').fadeIn();
       },
       error: function (responseData, textStatus, errorThrown) {
         $(alertbox).attr('class', 'display-error')
-        $(alertbox).text(responseData.responseJSON.Message)
-          .show()
+        if (responseData.responseJSON){
+          $(alertbox).text(responseData.responseJSON.Message)
+        } else {
+          $(alertbox).text("Oooops, sorry, something did not work.")
+        }
+        $('#SubscribeButton').fadeIn();
       }
     })
   })
