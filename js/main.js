@@ -24,7 +24,7 @@
     $('#SubscribeButton').fadeTo( 1000, 0 ); 
     $.ajax({
       type: 'POST',
-      url: 'https://dailycomic.azurewebsites.net/api/SubscriberRegistration?code=V9jPrg6mzcwoBS30OW7xKFeaeAtB77NBu8zu07t7CYThO70HDKKmVg==',
+      url: 'https://dailycomic.azure-api.net/dailycomic/SubscriberRegistration',
       crossDomain: true,
       data: data,
       success: function (responseData, textStatus, jqXHR) {
