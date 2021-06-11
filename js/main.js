@@ -18,7 +18,7 @@
   subscribeButton.addEventListener('click', async function (event) {
     const url = document.getElementById('WebhookUrlBox').value
     const selectBox = document.getElementById('SubscriptionTypeSelect').value
-    const data = JSON.stringify({ 'WebhookUrl': url, 'SubscriptionName': selectBox })
+    const data = JSON.stringify({ 'WebhookUrl': url, 'SubscriptionType': selectBox })
     const alertbox = $('#ConfirmationAlert')
     $(alertbox).attr('class', 'display-progress').text('Hold on, registering subscription').fadeIn()
     $('#SubscribeButton').fadeTo( 1000, 0 ); 
